@@ -65,6 +65,7 @@ render() {
       Seconds: {this.state.second}
       <button onClick={this.Increment} style={{color : this.props.colour}}   >+</button>
       <button onClick={this.Decrement} style={{color : this.props.colour}}  >-</button>
+      <button> Add</button>
       {/* {
          this.state.show ?  <Box /> : null
           
