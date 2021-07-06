@@ -1,25 +1,82 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+// eslint-disable-next-line no-unused-vars
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import './index.css'
+// import Box from './Box'
+
+
+
+class Timer extends React.Component {
+
+constructor(props) {
+  super(props);
+  this.state = { 
+    
+    second : 0 ,
+    show : true
+  
+  };
+  
 }
 
-export default App;
+ Increment = ()=> {
+//console.log("Inside Increment..")
+this.setState({
+  second : this.state.second +1 ,
+  show : !this.state.show
+});
+}
+
+Decrement = ()=> {
+
+  this.setState({
+    second : this.state.second - 1 
+  })
+  }
+
+  componentDidMount(){
+       console.log("cPMPONENT DID MOUNT CALLED...")
+  }
+
+    componentDidUpdate(){
+      console.log("component did update called......")
+    }
+
+    componentWillUnmount(){
+
+      console.log("component is goint to unmount...")
+    }
+
+
+    getSnapshotBeforeUpdate(){
+          console.log("Getting snapshot before update...")
+    }
+
+    // shouldComponentUpdate(){
+    //   console.log("should component update called...")
+    // }
+
+
+
+render() {
+  console.log("rendering...")
+  return (
+    <div>
+      Seconds: {this.state.second}
+      <button onClick={this.Increment} style={{color : this.props.colour}}   >+</button>
+      <button onClick={this.Decrement} style={{color : this.props.colour}}  >-</button>
+      {/* {
+         this.state.show ?  <Box /> : null
+          
+        }
+      } */}
+      
+
+    </div>
+    
+  );
+}
+}
+
+export default Timer
+
